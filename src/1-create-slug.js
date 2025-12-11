@@ -3,13 +3,13 @@
 const createSlug = (title) => {
   const bannedSymbols = "!#?"
   const lowercasedTitle = title.toLowerCase().replaceAll(" ", "-")
-  
-  
 
-   if(lowercasedTitle.includes("!#?")) null
 
-   return lowercasedTitle
-   
+
+  if (lowercasedTitle.includes("!#?")) null
+
+  return lowercasedTitle
+
 
 };
 
