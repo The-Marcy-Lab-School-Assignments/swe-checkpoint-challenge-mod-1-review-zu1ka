@@ -1,6 +1,7 @@
 # Short Responses
 
 For this assessment, aim to write a response with the following qualities:
+
 - [ ] Addresses all parts of the prompt
 - [ ] Accurately uses relevant technical terminology
 - [ ] Is free of grammar and spelling mistakes
@@ -26,7 +27,7 @@ const getLetterGrade = (score) => {
   }
 
   return "Your grade is: " + letter;
-}
+};
 
 console.log(getLetterGrade(95)); // This should print "Your grade is: A"
 console.log(getLetterGrade(82)); // This should print "Your grade is: B"
@@ -41,14 +42,11 @@ console.log(getLetterGrade(65)); // This should print "Your grade is: F"
 ### Response 1
 
 **Part A:**
-
-Your response...
+The reason why the code is printing `undefined` is due to declaring the `letter` variable in different scopes. In the code, the variable `letter` is defined on the block scope of the function, but then it is redeclared inside each condition of the if else statement rather then being reassigned inside the conditional blocks. This causes the `letter` variable on the function block to never have a value, which is why when it is returned, you get `undefined.`
 
 **Part B:**
 
-Your response...
-
----
+To fix this problem, all you have to do is get rid of the `let` keywords inside the control statement. This would make it so that the variable is only declared once on the function scope and reassigned inside the if-else statement's scope.
 
 ## Prompt 2
 
@@ -69,18 +67,18 @@ console.log(originalSettings.volume);
 
 **Part A:**
 
-Your response...
+The console will log 75. This happens because newSetting is not a copy of originalSetting; it’s a reference to the same object in memory. Changing newSettings.volume also changes originalSettings.volume since both variables point to the same object.
 
 **Part B:**
 
-Your response...
+To prevent changes to newSettings from affecting originalSettings, you can create a shallow copy of originalSettings using the spread operator. This way, newSettings will have its own independent object.
 
 **Corrected Code:**
 
 ```js
 // Fix this code so newSettings is a true copy
 const originalSettings = { volume: 50, brightness: 80 };
-const newSettings = originalSettings;
+const newSettings = { ...originalSettings };
 newSettings.volume = 75;
 console.log(originalSettings.volume);
 ```
@@ -90,6 +88,7 @@ console.log(originalSettings.volume);
 ## Prompt 3
 
 Given this array of products and the code using `filter`:
+
 ```js
 const products = [
   { name: "Laptop", price: 1000, inStock: true },
@@ -99,15 +98,16 @@ const products = [
 ];
 
 const itemsInStock = products.filter((product) => {
-  return product.inStock
+  return product.inStock;
 });
 ```
 
 Walk through what happens in the first iteration of filter:
+
 - What is the value of `product`?
 - What gets returned from the callback?
 - What happens with that returned value?
 
 ### Response 3
 
-Your response...
+Looking at the filter method being called on the array of product code above, I can see that inside the method, product will be representing the iterator that will be going through every index that is contained in the array. Product will be like the iterator in a for loop. You can name it anything because when it is defined in the parameter, it will have the job of iterating through the array and manipulating the items or getting information to be returned. The returned value would be an array of objects similar to the original array, but because of the condition, it will only return the objects that have an inStock key and are set to true.
